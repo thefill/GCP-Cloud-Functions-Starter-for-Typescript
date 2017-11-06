@@ -7,6 +7,10 @@ test & configuration of various Google Cloud services.
 
 To install it follow [Gcloud installation instructions](https://cloud.google.com/sdk/downloads#interactive).
 
+### Initialize Gcloud
+Gcloud CLI requires access to your google cloud projects. 
+To achieve that you need to authorize CLI tool to get access to your resources by following [this guide](https://cloud.google.com/sdk/docs/initializing). 
+
 ### Reinstall Yarn
 Next step requires change how Yarn is bounded to the node. We need to separate it from the node version 
 to make it play nicely with NVM (tool we will setup later).
@@ -59,23 +63,29 @@ load-nvmrc
 
 **Important:** please see required node version - its listed in .nvmrc config file.
 
-### Install Cloud Functions Local Emulator
-Local function emulator allows to test function before deploying it.
-Full documentation what you can do with emulator can be found [here](https://cloud.google.com/functions/docs/emulator).
-
-**Important:** to prevent clashes with other packages that are executed in bash as 'functions' 
-this package uses 'functions-emulator' command.
-
-To install Cloud Functions Local Emulator, execute:
-```bash
-yarn add @google-cloud/functions-emulator --dev
-```
 
 ### Clone repository & install packages
 To install packages for cloned repo, execute:
 ```bash
 yarn install
 ```
+
+### Rename sample function
+Starter code comes with sample function called "helloWorldFunction".
+Please replace it with the desired function name.
+
+Handy shortcut for Mac/Unix OS users - execute this script in the directory 
+where you have cloned repository (replace "yourFunctionNameHere" in following command with your 
+desired function name):
+```bash
+find . -type f \( -name "*.ts" -o -name package.json \) -not -path "./node_modules/*" -exec sed -i '' 's/helloWorldFunction/yourFunctionNameHere/g' {} \;
+```
+
+While browsing content of the package.json you will notice package called Cloud Functions Local Emulator. This emulator allows to test cloud functions before a true deployment.
+Full documentation what you can do with emulator can be found [here](https://cloud.google.com/functions/docs/emulator).
+
+**Important:** to prevent clashes with other packages that are executed in bash as 'functions' 
+this package uses 'functions-emulator' command.
 
 ##Commands
 ### Build project
