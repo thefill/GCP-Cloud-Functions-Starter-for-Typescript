@@ -1,8 +1,11 @@
 import { Request, Response } from "express";
 
 /**
- * HTTP Cloud Function.
+ * Cloud function definition
  */
-exports.helloWorldFunction = function helloWorldFunction( req: Request, res:Response ) {
-    res.send( `Hello ${req.body.name || 'World'}!` );
+function helloWorldFunction(req: Request, res: Response) {
+    res.send(`Hello ${req.body.name || 'World'}!`);
 };
+
+// Cloud Function export
+export { helloWorldFunction };
