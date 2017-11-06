@@ -5,7 +5,7 @@ import { Request, Response } from "express";
  */
 function helloWorldFunction(req: Request, res: Response) {
     res.send(`Hello ${req.body.name || 'World'}!`);
-};
+}
 
 // Cloud Function export
 export { helloWorldFunction };
