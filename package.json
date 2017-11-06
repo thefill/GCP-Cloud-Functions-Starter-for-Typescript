@@ -1,0 +1,30 @@
+{
+    "name": "GCP-Cloud-Functions-Starter-for-Typescript",
+    "version": "1.0.0",
+    "license": "MIT",
+    "repository" : {
+        "type" : "git",
+        "url" : "https://github.com/thefill/GCP-Cloud-Functions-Starter-for-Typescript"
+    },
+    "main": "dist/index.js",
+    "scripts": {
+        "build": "tsc",
+        "watch": "nodemon --watch src -e ts --ignore 'src/**/*.spec.ts' --exec \"yarn tsc && yarn emulator-deploy\"",
+        "emulator-start": "functions-emulator start",
+        "emulator-stop": "functions-emulator stop",
+        "emulator-kill": "functions-emulator kill",
+        "emulator-status": "functions-emulator status",
+        "emulator-deploy": "functions-emulator deploy helloWorldFunction --trigger-http --local-path=dist",
+        "emulator-debug": "functions-emulator debug helloWorldFunction",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "devDependencies": {
+        "@google-cloud/functions-emulator": "^1.0.0-alpha.25",
+        "@types/express": "^4.0.39",
+        "@types/node": "^6.0.0",
+        "nodemon": "^1.12.1",
+        "tsc-watch": "^1.0.8",
+        "tslint": "^5.8.0",
+        "typescript": "^2.6.1"
+    }
+}

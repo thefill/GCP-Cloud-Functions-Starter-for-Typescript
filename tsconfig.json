@@ -1,0 +1,55 @@
+{
+    "compilerOptions": {
+        ////////////////////
+        // Basic settings //
+        ////////////////////
+        // Specify module code generation: 'commonjs', 'amd', 'system', 'umd' or 'es2015'.
+        "module": "commonjs",
+        // Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', or 'ESNEXT'.
+        "target": "es6",
+        // output dir
+        "outDir": "dist",
+        // Generates corresponding '.map' file.
+         "sourceMap": true,
+        // Do not emit comments to output.
+        "removeComments": true,
+        "preserveConstEnums": true,
+        // Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6).
+        "moduleResolution": "node",
+        ///////////////////////////////////
+        // Strict Type-Checking Options //
+        //////////////////////////////////
+        // Enable strict null checks.
+        "strictNullChecks": true,
+        ////////////////////////
+        // Additional Checks //
+        ///////////////////////
+        // Raise error on expressions and declarations with an implied 'any' type.
+        // "noImplicitAny": true,
+        // Raise error on 'this' expressions with an implied 'any' type.
+        // "noImplicitThis": true,
+        // Report errors on unused locals.
+        // "noUnusedLocals": true,
+        // Report errors on unused parameters.
+        // "noUnusedParameters": true,
+        // Report error when not all code paths in function return a value.
+        // "noImplicitReturns": true,
+        // Report errors for fallthrough cases in switch statement.
+        "noFallthroughCasesInSwitch": true
+        //////////////////////////
+        // Experimental Options //
+        /////////////////////////
+        // Enables experimental support for ES7 decorators.
+        // "experimentalDecorators": true,
+        // Enables experimental support for emitting type metadata for decorators.
+        // "emitDecoratorMetadata": true
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts"
+    ],
+    "compileOnSave": false
+}
