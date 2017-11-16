@@ -6,16 +6,17 @@
         "type" : "git",
         "url" : "https://github.com/thefill/GCP-Cloud-Functions-Starter-for-Typescript"
     },
-    "main": "dist/index.js",
+    "main": "src/index.ts",
     "scripts": {
         "build": "tsc",
-        "watch": "nodemon --watch src -e ts --ignore 'src/**/*.spec.ts' --exec \"yarn tsc && yarn emulator-deploy\"",
+        "emulator-watch": "yarn emulator-start && nodemon --watch src -e ts --ignore 'src/**/*.spec.ts' --exec \"yarn tsc && yarn emulator-deploy\"",
+        "emulator-watch-debug": "yarn emulator-start && nodemon --watch src -e ts --ignore 'src/**/*.spec.ts' --exec \"yarn tsc && yarn emulator-deploy && yarn emulator-debug\"",
         "emulator-start": "functions-emulator start",
         "emulator-stop": "functions-emulator stop",
         "emulator-kill": "functions-emulator kill",
         "emulator-status": "functions-emulator status",
         "emulator-deploy": "functions-emulator deploy helloWorldFunction --trigger-http --local-path=dist",
-        "emulator-debug": "functions-emulator debug helloWorldFunction",
+        "emulator-debug": "functions-emulator inspect helloWorldFunction",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "devDependencies": {
