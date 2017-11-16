@@ -87,7 +87,21 @@ Full documentation what you can do with emulator can be found [here](https://clo
 **Important:** to prevent clashes with other packages that are executed in bash as 'functions' 
 this package uses 'functions-emulator' command.
 
-##Commands
+## Debugging Cloud function
+### Debugging session initialisation
+Start debugging session for deployed function:
+```bash
+yarn emulator-watch-debug
+```
+### Dedicated node.js debugger in Google Chrome 
+Open Google Chrome browser & navigate to 'chrome://inspect/#devices' and click 
+'Open dedicated DevTools for Node'. Separate window will launch with instruction 
+how to connect to debugging session executed in the previous step. 
+
+## Deployment to the production
+Follow the following [deployment instructions](https://cloud.google.com/functions/docs/deploying/filesystem). 
+
+## Available yarn / npm commands
 ### Build project
 ```bash
 yarn build

@@ -9,13 +9,14 @@
     "main": "dist/index.js",
     "scripts": {
         "build": "tsc",
-        "watch": "nodemon --watch src -e ts --ignore 'src/**/*.spec.ts' --exec \"yarn tsc && yarn emulator-deploy\"",
+        "emulator-watch": "nodemon --watch src -e ts --ignore 'src/**/*.spec.ts' --exec \"yarn tsc && yarn emulator-deploy\"",
+        "emulator-watch-debug": "nodemon --watch src -e ts --ignore 'src/**/*.spec.ts' --exec \"yarn tsc && yarn emulator-deploy && yarn emulator-debug\"",
         "emulator-start": "functions-emulator start",
         "emulator-stop": "functions-emulator stop",
         "emulator-kill": "functions-emulator kill",
         "emulator-status": "functions-emulator status",
-        "emulator-deploy": "functions-emulator deploy helloWorldFunction --trigger-http --local-path=dist",
-        "emulator-debug": "functions-emulator debug helloWorldFunction",
+        "emulator-deploy": "functions-emulator deploy outputFunctionName --trigger-http --local-path=dist",
+        "emulator-debug": "functions-emulator inspect outputFunctionName",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "devDependencies": {
