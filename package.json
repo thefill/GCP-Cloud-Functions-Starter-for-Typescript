@@ -6,22 +6,32 @@
         "type" : "git",
         "url" : "https://github.com/thefill/GCP-Cloud-Functions-Starter-for-Typescript"
     },
-    "main": "dist/index.js",
+    "main": "src/index.ts",
     "scripts": {
         "build": "tsc",
-        "watch": "nodemon --watch src -e ts --ignore 'src/**/*.spec.ts' --exec \"yarn tsc && yarn emulator-deploy\"",
+        "lint": "tslint --project .",
+        "test": "echo \"Warning: no test specified\" && exit 0",
+        "build-lint-test": "yarn build && yarn lint && yarn test",
+
+        "git-add": "git add .",
+        "precommit": "yarn build-lint-test && yarn git-add",
+        "prepush": "yarn lint && yarn test",
+
+        "emulator-watch": "yarn emulator-start && nodemon --watch src -e ts --ignore 'src/**/*.spec.ts' --exec \"yarn tsc && yarn emulator-deploy\"",
+        "emulator-watch-debug": "yarn emulator-start && nodemon --watch src -e ts --ignore 'src/**/*.spec.ts' --exec \"yarn tsc && yarn emulator-deploy && yarn emulator-debug\"",
         "emulator-start": "functions-emulator start",
+        "emulator-deploy": "functions-emulator deploy helloWorldFunction --trigger-http --local-path=dist",
+        "emulator-debug": "functions-emulator inspect helloWorldFunction",
+
         "emulator-stop": "functions-emulator stop",
         "emulator-kill": "functions-emulator kill",
-        "emulator-status": "functions-emulator status",
-        "emulator-deploy": "functions-emulator deploy helloWorldFunction --trigger-http --local-path=dist",
-        "emulator-debug": "functions-emulator debug helloWorldFunction",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "emulator-status": "functions-emulator status"
     },
     "devDependencies": {
         "@google-cloud/functions-emulator": "^1.0.0-alpha.25",
         "@types/express": "^4.0.39",
         "@types/node": "^6.0.0",
+        "husky": "^0.14.3",
         "nodemon": "^1.12.1",
         "tsc-watch": "^1.0.8",
         "tslint": "^5.8.0",
