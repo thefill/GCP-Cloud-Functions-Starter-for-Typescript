@@ -130,12 +130,19 @@ yarn emulator-status
 ```bash
 yarn emulator-deploy
 ```
+### Reset function deployed to the emulator that has stopped responding while debugging 
+```bash
+yarn emulator-reset
+```
 ### Start debugging session
 ```bash
 yarn emulator-debug
+```
+### Start debugging session with restart on file change
+```bash
+yarn emulator-watch-debug
 ```
 ### Execute tests
 ```bash
 yarn test
 ```
-

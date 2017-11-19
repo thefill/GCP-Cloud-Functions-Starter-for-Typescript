@@ -23,6 +23,7 @@
         "emulator-deploy": "functions-emulator deploy helloWorldFunction --trigger-http --local-path=dist",
         "emulator-debug": "functions-emulator inspect helloWorldFunction",
 
+        "emulator-reset": "functions-emulator reset helloWorldFunction",
         "emulator-stop": "functions-emulator stop",
         "emulator-kill": "functions-emulator kill",
         "emulator-status": "functions-emulator status"
