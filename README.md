@@ -98,6 +98,14 @@ Open Google Chrome browser & navigate to 'chrome://inspect/#devices' and click
 'Open dedicated DevTools for Node'. Separate window will launch with instruction 
 how to connect to debugging session executed in the previous step. 
 
+## Access to the GCP API services
+Access to the services will be automatically granted affter user execute command:
+```bash
+gcloud beta auth application-default login
+```
+
+After authentication all modules from @google-cloud package should use gcloud credentials.
+
 ## Deployment to the production
 Follow the following [deployment instructions](https://cloud.google.com/functions/docs/deploying/filesystem). 
 
