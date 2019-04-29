@@ -1,4 +1,7 @@
 # GCP Cloud Functions Starter for Typescript
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/thefill/GCP-Cloud-Functions-Starter-for-Typescript.svg)](https://greenkeeper.io/)
+
 ## Overview
 ## Initial setup
 ### Install Gcloud
